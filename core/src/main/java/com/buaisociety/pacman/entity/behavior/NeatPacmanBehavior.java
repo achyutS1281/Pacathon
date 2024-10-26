@@ -194,6 +194,9 @@ public class NeatPacmanBehavior implements Behavior {
         }else{
             scoreModifier = Math.max(0, scoreModifier-1);
         }
+        if(!pacman.canMove(newDirection)) {
+            scoreModifier -= 0.1;
+        }
         /*if (pacman.getMaze().getTile(pacman.getTilePosition().add(newDirection.asVector())).getState() != TileState.PELLET && (pelletBehind || pelletForward || pelletLeft || pelletRight)) {
             pacman.kill();
             return Direction.UP;
